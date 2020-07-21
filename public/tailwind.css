@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+
+/* buttons */
+
+.btn{
+    @apply font-bold py-2 px-4 rounded;
+}
+.btn-orange{
+    @apply bg-orange-600 text-white;
+}
+
+
+
+
+
+@tailwind utilities;

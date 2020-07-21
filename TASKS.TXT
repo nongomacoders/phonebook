@@ -1,0 +1,7 @@
+after you download the project run in the terminal :  npm install
+
+for css i am using tailwindcss. go to their site to see the available classes.
+
+2020-07-21 
+
+instead if a div tag create a contact component for the App file
