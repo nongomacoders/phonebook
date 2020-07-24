@@ -5,3 +5,23 @@ for css i am using tailwindcss. go to their site to see the available classes.
 2020-07-21 
 
 instead if a div tag create a contact component for the App file
+
+2020-07-24
+Very good.
+
+We dont want to have arrays in our components.
+The Contact component should receive info for only one contact via props.
+The idea is for the component to work with any data source.
+
+Move the array to a separate js file like contactList.js
+import it into App.svelte
+
+Use the #each loop inside App.svelte to generate a list of Contact components
+You will use props to send info to each Contact component.
+
+When you are confident add the Add, Edit and Delete functionality
+
+
+
+
+
