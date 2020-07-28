@@ -1,16 +1,22 @@
 <script>
 	import Contact from './Contact.svelte';
 	import Modal from './Modal.svelte';
+	import AddContact from './AddContact.svelte';
 
 	let showModal = false;
 
 	const toggleModal = () => {
 		showModal = !showModal;
-	}
+	};
+
+
 </script>
 
 <!--Displaying the imported contact component-->
-<Modal {showModal} on:click={toggleModal} />
+<Modal {showModal} on:click={toggleModal}>
+	<AddContact />	
+</Modal>
+
 
 <main>
 	<h1>PhoneBook using Svelte Js</h1>

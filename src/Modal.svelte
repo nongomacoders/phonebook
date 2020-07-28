@@ -1,14 +1,16 @@
 <script>
-import AddContact from './AddContact.svelte';
+import AddContact from './addContact.svelte';
 export let showModal = false;
+import { fade, fly } from 'svelte/transition';
+
 
 </script>
 
 {#if showModal}
 <div class="backdrop" {showModal} on:click|self>
-    <div class="modal">
+    <div class="modal" in:fly="{{ y: 200, duration: 2000 }}" out:fade>
         <slot>
-            <AddContact/>
+           
         </slot>
     </div>
 </div>
@@ -27,11 +29,11 @@ export let showModal = false;
 .modal{
     padding: 100px;
     border-radius: 10px;
-    max-width: 400px;
+    max-width: 500px;
     margin: 10% auto;
     text-align: center;
     background: rgb(75, 59, 53);
-    color: white;
     transition: width 9s, height 15s;
+    box-shadow: 0 10px 15px -3px rgba(245, 219, 219, 0.1), 0 4px 6px -2px rgba(226, 207, 207, 0.05);
 }
 </style>
