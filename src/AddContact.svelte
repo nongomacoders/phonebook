@@ -1,27 +1,28 @@
 <script>
 import {createEventDispatcher} from 'svelte';
-import Contact from './Contact.svelte';
 
-let name;
-let cell;
-let email;
 
 let dispatch = createEventDispatcher();
 
+let name;
+let surname;
+let cell;
+let email;
+
 const saveContact = () => {
-    console.log(name);
+    //console.log(name);
     const contact = {
-        id: Math.random(),
+       
         name,
+        surname,
         cell,
-        email
+        email,
+        
     };
-    dispatch('saveContact', contact);
+      dispatch('saveContact', contact);
+    
 }
 
-function save(){
-  contacts.push();
-}
 
 </script>
 
@@ -36,30 +37,44 @@ function save(){
       <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" type="text" bind:value={name}>
     </div>
   </div>
+
+<div class="md:flex md:items-center mb-6">
+    <div class="md:w-1/3">
+      <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-surname">
+        Surname
+      </label>
+    </div>
+    <div class="md:w-2/3">
+      <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-surname" type="text" bind:value={surname}>
+    </div>
+  </div>
+  
   <div class="md:flex md:items-center mb-6">
     <div class="md:w-1/3">
-      <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-username">
+      <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-cell">
         Cellphone
       </label>
     </div>
     <div class="md:w-2/3">
-      <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-username" type="tel" placeholder="Cellphone" bind:value={cell}>
+      <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-cell" type="tel" placeholder="Cellphone" bind:value={cell}>
     </div>
   </div>
+
  <div class="md:flex md:items-center mb-6">
     <div class="md:w-1/3">
-      <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-username">
+      <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-email">
         Email
       </label>
     </div>
     <div class="md:w-2/3">
-      <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-username" type="email" placeholder="Email" bind:value={email}>
+      <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-email" type="email" placeholder="Email" bind:value={email}>
     </div>
   </div>
+
   <div class="md:flex md:items-center">
     <div class="md:w-1/3"></div>
     <div class="md:w-2/3">
-      <button on:click={save} class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
+      <button class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
             Save
       </button>
 
