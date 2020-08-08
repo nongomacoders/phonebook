@@ -12,15 +12,12 @@ let email;
 const saveContact = () => {
     //console.log(name);
     const contact = {
-       
         name,
         surname,
         cell,
-        email,
-        
+        email, 
     };
       dispatch('saveContact', contact);
-    
 }
 
 

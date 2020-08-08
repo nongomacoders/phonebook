@@ -5,7 +5,7 @@
 
   export let contacts = [
     {
-      id: 1,
+      id: 0,
       name: "a",
       surname: "b",
       cell: "c",
@@ -19,16 +19,44 @@
     showModal = !showModal;
   };
 
-  const addContact = e => {
+  const addContact = (e) => {
     const contact = e.detail;
     contacts = [contact, ...contacts];
     showModal = false;
   };
 
-  const deleteContact = id => {
-    contacts = contacts.filter(contact => contact.id != id);
-  };
+  const deleteContact = (id) =>{
+     console.log("Hello diketso");
+     //contacts = e.detail;
+	    contacts = contacts.filter((contact) => contact.id != id);
+}
+
 </script>
+
+
+<!--Displaying the imported contact component-->
+<Modal {showModal} on:click={toggleModal}>
+  <AddContact on:saveContact={addContact} />
+</Modal>
+
+<main>
+  <h1 class="text-5xl m-5">PhoneBook using Svelte Js</h1>
+
+  {#each contacts as contact (contact.id)}  
+      <Contact {contact} on:delCon={deleteContact}/>    
+  {/each}
+
+ 
+
+  <button
+    class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold
+    hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent
+    rounded"
+    on:click={toggleModal}>
+    Add Contact
+  </button>
+</main>
+
 
 <style>
   main {
@@ -48,24 +76,3 @@
     font-size: auto;
   }
 </style>
-
-<!--Displaying the imported contact component-->
-<Modal {showModal} on:click={toggleModal}>
-  <AddContact on:saveContact={addContact} />
-</Modal>
-
-<main>
-  <h1 class="text-5xl m-5">PhoneBook using Svelte Js</h1>
-
-  {#each contacts as contact (contact.id)}  
-      <Contact {contact}/>    
-  {/each}
-
-  <button
-    class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold
-    hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent
-    rounded"
-    on:click={toggleModal}>
-    Add Contact
-  </button>
-</main>
